@@ -1,0 +1,23 @@
+<html class="newgamebody">
+<body>
+<p class='newgame'><%= @message %></p>
+<div>
+<%= form_for(:game, url:calculate_path) do |f| %>
+
+<table style="border-collapse: collapse;" id="mytable">
+	<!-- <input type='text' value=<%= @post%> ></input> -->
+<% for i in 0..8 do %>
+<tr id="grid" border="1" >
+	<% for j in 0..8 do %>
+	<td class="<%= (j+1) % 3 == 0 && j != 8 ? (i+1) % 3 == 0 && i != 8 ? 'seperatecellij' : 'seperatecell' : (i+1) % 3 == 0 && i != 8 ? 'seperatecelli' : 'cell' %>">
+		<%= text_field_tag "@post[#{i}][#{j}]" , nil, :maxlength => 1, :size => 1, value: @post[i][j].nil? ? '' : @post[i][j] %></td>
+	<% end %>
+     </tr>
+<% end %>
+</table>
+</br>
+<%= f.submit "Solve", class: "follow-button col1" %>
+</div>
+<% end %>
+</body>
+</html>

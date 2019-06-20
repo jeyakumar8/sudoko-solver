@@ -1,0 +1,18 @@
+<html>
+<body class="newgamebody">
+<div style="text-align: center;">
+<h1 class='minegame'>Solved SUDOKO</h1>
+<table style="border-collapse: collapse;" id="mytable" align="center">  
+<% @post.each do |data| %>
+  <tr id="grid" border="1">
+  	<% data.each do |data1| %>
+    <td class="showcell"><%= data1 != 0 ? data1 : '' %></td> 
+   <% end %>    
+  </tr>            
+<% end %>      
+</table> 
+</br>
+<%= button_to "new game", newgame_path, :method => "get", class: "follow-button col2" %></div>
+</div>
+</body>
+</html>
